@@ -13,4 +13,4 @@
 
 
 
-Route::get('/', 'BookStoreController@index');
+Route::get('/a', 'BookStoreController@index');

@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Book List</title>
+	
+	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap-theme.min.css') }}">
+
+
 </head>
 <body>
+	<div class="container">
+		
+	
 	<h1>Book List</h1>
 	<table class="table table-bordered text-center">
 		<tr>
@@ -26,6 +34,6 @@
 		@endforeach
 
 	</table>
-
+	</div>
 </body>
 </html>
