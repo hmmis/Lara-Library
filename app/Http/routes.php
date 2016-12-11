@@ -13,4 +13,8 @@
 
 
 
-Route::get('/a', 'BookStoreController@index');
+Route::get('/', 'BookStoreController@index');
+
+Route::get('add', 'BookStoreController@addBook');
+Route::post('add', 'BookStoreController@processAddBook');
+
