@@ -42,11 +42,13 @@
 				<td>{{ $row->Edition }}</td>
 				<td>Details</td>
 				<td><a href="edit/{{$row->BookId}}">Edit</a></td>
-				<td><a href="delete/{{$row->BookId}}">Delete</a></td>
+				<td><a href="delete/{{$row->BookId}}" onclick="return confirm('Are you sure?')">Delete</a></td>
 			</tr>
 		@endforeach
 
 	</table>
+	<center>{!! $books->render() !!}</center>
+	
 	</div>
 </body>
 </html>

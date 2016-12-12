@@ -18,3 +18,5 @@ Route::get('/', 'BookStoreController@index');
 Route::get('add', 'BookStoreController@addBook');
 Route::post('add', 'BookStoreController@processAddBook');
 
+Route::get('delete/{id}', 'BookStoreController@deleteBook');
+

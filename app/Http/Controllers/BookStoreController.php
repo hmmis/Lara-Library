@@ -9,6 +9,8 @@ use App\Http\Requests\AddBookValidation;
 
 use App\ModelBook;
 
+use DB;
+
 class BookStoreController extends Controller
 {
     public function index(){
@@ -17,6 +19,7 @@ class BookStoreController extends Controller
     	return view('view_BookList',$data);
 
     }
+
     public function addBook(){
     	$data['books'] = ModelBook::getBookList();
     	return view('view_AddBook',$data);
@@ -36,5 +39,13 @@ class BookStoreController extends Controller
         $request->session()->flash('message', 'New Book Added Successfull');
         return redirect('/');
         
+    }
+
+     public function deleteBook($id,Request $request){
+
+        ModelBook::deleteBook($id);
+        $request->session()->flash('message', 'Delete id '.$id .' Successfull');
+
+        return back();
     }
 }
