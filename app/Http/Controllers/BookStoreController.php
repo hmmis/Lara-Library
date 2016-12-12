@@ -20,9 +20,10 @@ class BookStoreController extends Controller
 
     }
 
+    //======================================================insert
     public function addBook(){
-    	$data['books'] = ModelBook::getBookList();
-    	return view('view_AddBook',$data);
+
+    	return view('view_AddBook');
     }
 
     public function processAddBook(AddBookValidation $request){
@@ -41,7 +42,29 @@ class BookStoreController extends Controller
         
     }
 
-     public function deleteBook($id,Request $request){
+    //======================================================update
+    public function editBook($id){
+
+        $data['book'] = ModelBook::getOneBook($id);
+        return view('view_EditBook',$data);
+    }
+    public function processEditBook($id,AddBookValidation $request){
+
+        $data = array(
+            'BookName' => $request->input('book_name'),
+            'Author' => $request->input('author_name'),
+            'edition' => $request->input('edition')
+
+        );
+
+        ModelBook::editBook($data,$id);
+
+        $request->session()->flash('message', 'Book Edited Successfull');
+        return redirect('/');
+    }
+
+    //======================================================delete
+    public function deleteBook($id,Request $request){
 
         ModelBook::deleteBook($id);
         $request->session()->flash('message', 'Delete id '.$id .' Successfull');
