@@ -13,6 +13,19 @@
 		
 	
 	<h1>Book List</h1>
+
+	@if (session()->has('message'))
+		<div class="alert alert-success">
+			 {{session('message')}} 
+		</div>    
+	@endif
+
+	<div class=text-right>
+		<a  href="{{ url('add') }}" class="btn btn-primary">
+			<span class="glyphicon glyphicon-plus"> </span>  Add Book
+		</a>
+	</div><br>
+
 	<table class="table table-bordered text-center">
 		<tr>
 			<th>BookName</th>

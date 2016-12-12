@@ -1,10 +1,11 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use App\Http\Requests\AddBookValidation;
 
 use App\ModelBook;
 
@@ -21,14 +22,19 @@ class BookStoreController extends Controller
     	return view('view_AddBook',$data);
     }
 
-    public function processAddBook(Request $request){
+    public function processAddBook(AddBookValidation $request){
 
-        $this->validate($request, [
-            'book_name' => 'required|max:255',
-            'author_name' => 'required',
-            'edition' => 'required'
-        ]);
+        $data = array(
+            'BookName' => $request->input('book_name'),
+            'Author' => $request->input('author_name'),
+            'edition' => $request->input('edition')
 
-        return "OK";
+        );
+
+        ModelBook::insertNewBook($data);
+
+        $request->session()->flash('message', 'New Book Added Successfull');
+        return redirect('/');
+        
     }
 }

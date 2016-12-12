@@ -12,4 +12,8 @@ class ModelBook extends Model
 
     	return DB::table('bookstore')->get();
     }
+    public static function insertNewBook($data){
+
+        DB::table('bookstore')->insert($data);
+    }
 }
