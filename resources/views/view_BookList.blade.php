@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Book List</title>
-	
-	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
-	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap-theme.min.css') }}">
+@extends('view_layouts/view_master')		
+@section('title', 'Book Lists')
+@section('content')
 
-
-</head>
-<body>
-	<div class="container">
-		
-	
+<div class="container">
 	<h1>Book List</h1>
 
 	@if (session()->has('message'))
@@ -48,7 +39,6 @@
 
 	</table>
 	<center>{!! $books->render() !!}</center>
-	
-	</div>
-</body>
-</html>
+
+</div>
+@endsection

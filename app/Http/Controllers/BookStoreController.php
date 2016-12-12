@@ -9,10 +9,9 @@ use App\Http\Requests\AddBookValidation;
 
 use App\ModelBook;
 
-use DB;
-
 class BookStoreController extends Controller
 {
+    //======================================================show data
     public function index(){
 
     	$data['books'] = ModelBook::getBookList();
