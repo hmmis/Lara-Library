@@ -14,6 +14,14 @@ class ModelBook extends Model
     	return DB::table('bookstore')->orderBy('BookName', 'asc')->paginate(5);
     	//return DB::table('bookstore')->orderBy('BookName', 'asc')->get();
     }
+    public static function getSuggestion($hint){
+
+        $results = DB::table('bookstore')
+                ->where('BookName', 'like', '%'.$hint.'%')
+                ->get();
+
+        return $results;
+    }
     public static function getOneBook($id){
         
         return DB::table('bookstore')->where('BookId', '=' , $id)->get();

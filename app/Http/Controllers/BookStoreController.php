@@ -18,6 +18,25 @@ class BookStoreController extends Controller
     	return view('view_BookList',$data);
 
     }
+    public function showSuggestion($hint){
+
+        $data = ModelBook::getSuggestion($hint);
+        $totalResult=count($data);
+        echo "Suggestions: ";
+
+        if($totalResult>0)
+        {
+            foreach ($data as $row)
+            {
+                echo $row->BookName;
+                echo ",";
+            }   
+        }
+        else
+        {
+            echo "No Book Found";
+        }
+    }
 
     //======================================================insert
     public function addBook(){

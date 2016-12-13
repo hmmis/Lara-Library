@@ -23,3 +23,5 @@ Route::post('edit/{id}', 'BookStoreController@processEditBook');
 
 Route::get('delete/{id}', 'BookStoreController@deleteBook');
 
+Route::get('suggestion/{hint}', 'BookStoreController@showSuggestion');
+
