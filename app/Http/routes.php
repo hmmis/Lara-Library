@@ -10,10 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/', 'ProfileController@Login');
+Route::post('/', 'ProfileController@processLogin');
 
 
-
-Route::get('/', 'BookStoreController@index');
+Route::get('home', 'BookStoreController@index');
 
 Route::get('add', 'BookStoreController@addBook');
 Route::post('add', 'BookStoreController@processAddBook');

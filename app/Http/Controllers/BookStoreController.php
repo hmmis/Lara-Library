@@ -56,7 +56,7 @@ class BookStoreController extends Controller
         ModelBook::insertNewBook($data);
 
         $request->session()->flash('message', 'New Book Added Successfull');
-        return redirect('/');
+        return redirect('home');
         
     }
 
@@ -78,7 +78,7 @@ class BookStoreController extends Controller
         ModelBook::editBook($data,$id);
 
         $request->session()->flash('message', 'Book Edited Successfull');
-        return redirect('/');
+        return redirect('home');
     }
 
     //======================================================delete
