@@ -3,6 +3,7 @@ A Laravel 5.3 Project For learning Laravel
 
 
 //**********************************************Laravel features
+
 -form validation
 
 -pagination
@@ -19,8 +20,10 @@ A Laravel 5.3 Project For learning Laravel
 
 -Middleware
 
+-Migration
 
-//**********************************************Laravel DB features
+
+//**********************************************Laravel DB features with MVC
 
 -create
 
