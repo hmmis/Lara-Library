@@ -11,10 +11,14 @@ use App\ModelBook;
 
 class BookStoreController extends Controller
 {
+
     //======================================================show data
-    public function index(){
+    public function index(Request $request){
+
+        
 
     	$data['books'] = ModelBook::getBookList();
+        $data['user']=$request->session()->get('usersname');
     	return view('view_BookList',$data);
 
     }

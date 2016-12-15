@@ -22,6 +22,9 @@
 </script>
 
 <div class="container">
+
+	Logged In As: {{$user}}
+	<a  href="{{ url('LogOut') }}" > Log Out</a>
 	<h1>Book List</h1>
 
 	@if (session()->has('message'))

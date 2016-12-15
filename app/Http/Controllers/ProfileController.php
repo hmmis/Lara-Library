@@ -17,6 +17,13 @@ class ProfileController extends Controller
     	return view('view_Login');
 
     }
+    public function LogOut(Request $request){
+
+        $request->session()->forget('usersname');
+        $request->session()->flash('message', 'LogOut Successfully');
+        return redirect('/');
+
+    }
     public function processLogin(LogInValidation $request){
 
         $userInput = array(
@@ -36,6 +43,9 @@ class ProfileController extends Controller
         {
             //======================================Login Success
             $request->session()->flash('message', 'You Logged In Successfully');
+
+            $request->session()->put('usersname', $userInput['UN']);
+
             return redirect('home');
         }
 

@@ -10,19 +10,25 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use App\Http\Middleware\CheckUsers;
+
 Route::get('/', 'ProfileController@Login');
 Route::post('/', 'ProfileController@processLogin');
 
+Route::get('LogOut', 'ProfileController@LogOut');
 
-Route::get('home', 'BookStoreController@index');
 
-Route::get('add', 'BookStoreController@addBook');
-Route::post('add', 'BookStoreController@processAddBook');
+Route::group(['middleware' => [CheckUsers::class]], function () {
 
-Route::get('edit/{id}', 'BookStoreController@editBook');
-Route::post('edit/{id}', 'BookStoreController@processEditBook');
+	Route::get('home', 'BookStoreController@index');
+    Route::get('add', 'BookStoreController@addBook');
+	Route::post('add', 'BookStoreController@processAddBook');
 
-Route::get('delete/{id}', 'BookStoreController@deleteBook');
+	Route::get('edit/{id}', 'BookStoreController@editBook');
+	Route::post('edit/{id}', 'BookStoreController@processEditBook');
 
-Route::get('suggestion/{hint}', 'BookStoreController@showSuggestion');
+	Route::get('delete/{id}', 'BookStoreController@deleteBook');
+
+	Route::get('suggestion/{hint}', 'BookStoreController@showSuggestion');
+});
 
